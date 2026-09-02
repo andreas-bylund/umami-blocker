@@ -3,6 +3,7 @@
   "name": "Umami Blocker",
   "version": "1.0.0",
   "description": "Blockerar Umami-analytics så att du inte trackar dig själv på dina egna sidor.",
+  "homepage_url": "https://github.com/andreas-bylund/umami-blocker",
   "permissions": ["declarativeNetRequest", "storage"],
   "background": {
     "service_worker": "background.js"
