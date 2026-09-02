@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Umami Blocker",
   "version": "1.0.0",
-  "description": "Blockerar Umami-analytics så att du inte trackar dig själv på dina egna sidor.",
+  "description": "Blocks Umami analytics at the network level, so your own visits never show up in your stats.",
   "homepage_url": "https://github.com/andreas-bylund/umami-blocker",
   "permissions": ["declarativeNetRequest", "storage"],
   "background": {

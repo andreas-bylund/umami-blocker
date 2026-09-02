@@ -3,9 +3,9 @@ const DEFAULTS = {
   entries: ["umami.is"],
 };
 
-// Resurstyper som täcker trackerskriptet och dess anrop, men inte
-// vanlig sidnavigering (main_frame) — så att Umami-dashboarden
-// fortfarande går att besöka.
+// Resource types that cover the tracker script and its calls, but not
+// regular page navigation (main_frame) — so the Umami dashboard itself
+// stays reachable.
 const BLOCKED_RESOURCE_TYPES = [
   "script",
   "xmlhttprequest",
@@ -36,13 +36,13 @@ function entryToRule(entry, id) {
   const condition = { resourceTypes: BLOCKED_RESOURCE_TYPES };
 
   if (entry.includes("/")) {
-    // URL-mönster, t.ex. "example.com/stats/script.js" för proxade
-    // installationer. Blockera exakt det mönstret oavsett avsändare.
+    // URL pattern, e.g. "example.com/stats/script.js" for proxied
+    // setups. Block that exact pattern regardless of initiator.
     condition.urlFilter = /^[|*]/.test(entry) ? entry : `||${entry}`;
   } else {
-    // Ren domän: blockera all trafik till domänen (inkl. subdomäner)
-    // från andra sajter, men släpp igenom trafik domänen gör själv —
-    // annars slutar Umami-dashboarden att fungera.
+    // Plain domain: block all traffic to the domain (subdomains
+    // included) from other sites, but let the domain's own requests
+    // through — otherwise the Umami dashboard stops working.
     condition.urlFilter = `||${entry}^`;
     condition.excludedInitiatorDomains = [entry];
   }
@@ -73,6 +73,6 @@ async function updateRules() {
     addRules,
   });
 
-  await chrome.action.setBadgeText({ text: enabled ? "" : "AV" });
+  await chrome.action.setBadgeText({ text: enabled ? "" : "OFF" });
   await chrome.action.setBadgeBackgroundColor({ color: "#b91c1c" });
 }

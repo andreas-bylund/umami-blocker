@@ -9,8 +9,8 @@ async function render() {
   toggle.checked = enabled;
   const count = entries.filter((e) => e.trim()).length;
   status.textContent = enabled
-    ? `Blockerar ${count} ${count === 1 ? "domän/mönster" : "domäner/mönster"}.`
-    : "Blockering avstängd.";
+    ? `Blocking ${count} ${count === 1 ? "domain/pattern" : "domains/patterns"}.`
+    : "Blocking is off.";
 }
 
 toggle.addEventListener("change", async () => {

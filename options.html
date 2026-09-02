@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Umami Blocker – Inställningar</title>
+  <title>Umami Blocker – Settings</title>
   <style>
     body {
       max-width: 560px;
@@ -68,21 +68,21 @@
 </head>
 <body>
   <h1>Umami Blocker</h1>
-  <p>Ange de Umami-servrar som ska blockeras, en per rad.</p>
+  <p>List the Umami servers to block, one per line.</p>
   <textarea id="entries" spellcheck="false" placeholder="stats.example.com"></textarea>
   <div>
-    <button id="save">Spara</button>
-    <span id="saved">Sparat ✓</span>
+    <button id="save">Save</button>
+    <span id="saved">Saved ✓</span>
   </div>
   <div class="hint">
-    <p><strong>Domän</strong>, t.ex. <code>stats.example.com</code> — blockerar
-    trackerskriptet och alla anrop till servern (subdomäner ingår), men du kan
-    fortfarande logga in och använda själva Umami-dashboarden.</p>
-    <p><strong>URL-mönster</strong> (innehåller <code>/</code>), t.ex.
-    <code>example.com/stats/script.js</code> — använd om Umami proxas via
-    samma domän som sajten själv. Lägg då även till mönstret för
-    sändnings-endpointen, t.ex. <code>example.com/stats/api/send</code>.</p>
-    <p>Standardposten <code>umami.is</code> täcker Umami Cloud.</p>
+    <p><strong>Domain</strong>, e.g. <code>stats.example.com</code> — blocks
+    the tracker script and all calls to the server (subdomains included),
+    while you can still log in and use the Umami dashboard itself.</p>
+    <p><strong>URL pattern</strong> (contains a <code>/</code>), e.g.
+    <code>example.com/stats/script.js</code> — use this when Umami is proxied
+    through the same domain as the site itself. Then also add a pattern for
+    the collect endpoint, e.g. <code>example.com/stats/api/send</code>.</p>
+    <p>The default entry <code>umami.is</code> covers Umami Cloud.</p>
   </div>
   <script src="options.js"></script>
 </body>
